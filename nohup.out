@@ -37,3 +37,6 @@ Errno::ENOENT: No such file or directory - watch
   Use --trace for backtrace.
 [Listen warning]:
   Listen will be polling for changes. Learn more at https://github.com/guard/listen#polling-fallback.
+>>> Sass is watching for changes. Press Ctrl-C to stop.
+>>> Change detected to: style.scss
+>>> Change detected to: style.scss
