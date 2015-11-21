@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="">
 	<head>
 		<meta charset="utf-8">
 		
@@ -18,9 +18,5 @@
 		<script src="/editor/js/editor.js"></script>
 	</head>
 	
-	<body>
-		<p>
-			{{'hello' + ' world!'}}
-		</p>
-	</body>
+	<body ng-controller="controller"></body>
 </html>
