@@ -5,10 +5,15 @@
 		
 		<title>Sprint Editor</title>
 		
+		<!-- materializecss.com  -->
 		<link rel="stylesheet" href="/css/main.css">
-		<link rel="stylesheet" href="editor.css">
 		
+		<!-- angularjs.org  -->
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+		
+		<!-- sprint files -->
+		<link rel="stylesheet" href="/editor/editor.css">
+		<script src="/editor/js/editor.js"></script>
 	</head>
 	
 	<body>
