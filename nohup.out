@@ -1,0 +1,39 @@
+>>> Sass is watching for changes. Press Ctrl-C to stop.
+      write style.css
+      write style.css.map
+[Listen warning]:
+  Listen will be polling for changes. Learn more at https://github.com/guard/listen#polling-fallback.
+>>> Change detected to: style.scss
+      write style.css
+      write style.css.map
+>>> Change detected to: style.scss
+      write style.css
+      write style.css.map
+>>> Change detected to: style.scss
+      write style.css
+      write style.css.map
+>>> Change detected to: style.scss
+      write style.css
+      write style.css.map
+>>> Change detected to: style.scss
+      write style.css
+      write style.css.map
+>>> Change detected to: style.scss
+      write style.css
+      write style.css.map
+>>> Change detected to: style.scss
+      write style.css
+      write style.css.map
+>>> Change detected to: style.scss
+      write style.css
+      write style.css.map
+>>> Change detected to: style.scss
+      write style.css
+      write style.css.map
+>>> Change detected to: style.scss
+      write style.css
+      write style.css.map
+Errno::ENOENT: No such file or directory - watch
+  Use --trace for backtrace.
+[Listen warning]:
+  Listen will be polling for changes. Learn more at https://github.com/guard/listen#polling-fallback.
