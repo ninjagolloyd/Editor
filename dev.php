@@ -5,11 +5,13 @@
 		
 		<title>Sprint Editor</title>
 		
+		<!-- dependencies  -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+		<script src="/js/jquery.js"></script>
+		
 		<!-- materializecss.com  -->
 		<link rel="stylesheet" href="/css/main.css">
-		
-		<!-- angularjs.org  -->
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+		<script src="/js/materialize.js"></script>
 		
 		<!-- sprint files -->
 		<link rel="stylesheet" href="/editor/editor.css">
