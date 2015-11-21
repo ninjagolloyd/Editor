@@ -5,11 +5,11 @@
 		
 		<title>Sprint Editor</title>
 		
-		<!-- dependencies  -->
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-		<script src="/js/jquery.js"></script>
+		<!-- angular  -->
+		<script src="/editor/js/ng.js"></script>
+		<script src="/editor/js/ng-context-menu.js"></script>
 		
-		<!-- sprint files -->
+		<!-- sprint -->
 		<link rel="stylesheet" href="/editor/editor.css">
 		<script src="/editor/js/editor.js"></script>
 	</head>
