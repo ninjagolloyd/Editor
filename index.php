@@ -30,7 +30,7 @@ generateHead(array(
 			<?php } ?>
 		<?php } else { ?>
 			Editor.load('/create/project/blank');
-			Editor.tutorial(); // somebody, make this!
+			// Editor.tutorial(); // somebody, make this!
 		<?php } ?>
 	});
 </script>
