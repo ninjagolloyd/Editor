@@ -1,0 +1,64 @@
+@import '../scss/materialize/materialize';
+
+body {
+	background: black;
+	color: white;
+	
+	margin: 0;
+	padding: 0;
+	
+	overflow: hidden;
+	
+	-webkit-user-select: none;
+}
+
+* {
+	cursor: default;
+}
+
+nav {
+	height: 32px;
+	display: flex;
+	
+	background: linear-gradient($sprint-color, darken($sprint-color, 5%));
+	
+	a {
+		padding-left: 16px;
+		padding-right: 16px;
+		display: inline-block;
+		height: 32px;
+		line-height: 32px;
+		color: white;
+		cursor: pointer;
+		
+		transition: 300ms;
+	}
+	
+	a:hover {
+		text-shadow: 0 0 10px white;
+	}
+}
+
+main {
+	width: 100%;
+	height: calc(100vh - 32px);
+	
+	#editor {
+		height: 100%;
+		margin: 0;
+		
+		#left, #right {
+			margin: 0;
+			height: 100%;
+			padding: 0;
+		}
+		
+		#left {
+			
+		}
+		
+		#right {
+			
+		}
+	}
+}

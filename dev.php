@@ -8,17 +8,13 @@
 		
 		<title>Sprint Editor</title>
 		
-		<!-- angular  -->
-		<script src="/editor/js/ng.js"></script>
-		<script src="/editor/js/ng-context-menu.js"></script>
-		
-		<!-- sprint -->
 		<link rel="stylesheet" href="/editor/editor.css">
+		
 		<script src="/editor/js/editor.js"></script>
 	</head>
 	
-	<body ng-app="editor">
-		<main class="row" ng-controller="controller">
+	<body>
+		<main class="row">
 			<div class="col s12 m6 l8">
 			
 			</div>
