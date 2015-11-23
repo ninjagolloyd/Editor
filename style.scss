@@ -1,0 +1,722 @@
+::selection {
+	background: $sprint-color;
+	color: white;
+}
+
+.loading-project {
+	margin: auto;
+	width: 70%;
+	height: 32px;
+	border-radius: 16px;
+	margin-top: 100px;
+	background: color('blue', 'darken-1');
+	
+	.determinate {
+		background-color: color('blue', 'darken-2');
+	}
+}
+
+.parent-editor {
+	@include no-select;
+	color: $sprint-text;
+	background: $sprint-color;
+	
+	.navbar-fixed, .page-footer {
+		margin: 0 !important;
+	}
+	
+	.editor {
+		margin: 0;
+		color: white;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		background: #263238;
+		
+		.left-side, .right-side {
+			position: relative;
+			color: $sprint-text;
+			
+			.toolbar {
+				height: 64px;
+				width: 100%;
+				display: flex;
+				flex-direction: row;
+				flex-wrap: nowrap;
+			}
+		}
+		
+		.left-side {
+			min-width: 50%;
+			flex-shrink: 0;
+			flex-grow: 1;
+			z-index: 99;
+			
+			.toolbar {
+				background: $sprint-color;
+			}
+			
+			.CodeMirror {
+				cursor: text;
+				display: block;
+				height: calc(100% - 64px);
+				width: 100%;
+				position: absolute;
+				top: 64px;
+				bottom: 0;
+				
+				.CodeMirror-overlayscroll-vertical {
+					cursor: default;
+				}
+				
+				.CodeMirror-cursor {
+					border-left: 1px solid rgb(128, 203, 196);
+				}
+			}
+		
+			#costumes {
+				display: block;
+				height: calc(100% - 64px);
+				width: 100%;
+				position: absolute;
+				top: 64px;
+				bottom: 0;
+				background: #263238;
+			}
+			
+			#sounds {
+				display: block;
+				height: calc(100% - 64px);
+				width: 100%;
+				position: absolute;
+				top: 64px;
+				bottom: 0;
+				background: #263238;
+			}
+			
+			#sounds, #costumes {
+				user-select: none;
+				overflow: auto;
+				
+				::-webkit-scrollbar {
+					width: 8px;
+				}
+				
+				::-webkit-scrollbar-track {
+					background: #1E282D;
+				}
+
+				::-webkit-scrollbar-thumb {
+					background-color: #1B2429;
+				}
+				
+				.thumby {
+					// the actual piece of media lives here
+					width: 100%;
+					height: 96px;
+					background-size: 96px;
+					background-position: left;
+					background-repeat: no-repeat;
+					margin-top: 16px;
+					margin-bottom: 16px;
+					background-color: rgba(0, 0, 0, 0.1);
+					text-align: right;
+					line-height: 96px;
+					font-size: 24px;
+					color: #e9eded;
+					transition: 200ms;
+					position: relative;
+					cursor: default;
+					
+					.pause, .play {
+						position: absolute;
+						height: 100%;
+						width: 96px;
+						left: 0;
+						top: 0;
+						text-align: center;
+						line-height: 96px;
+						font-size: 72px;
+						cursor: pointer;
+					}
+					
+					.delete, .up, .down {
+						transition: 200ms;
+						position: absolute;
+						top: 24px;
+						bottom: 24px;
+						height: 48px;
+						width: 48px;
+						line-height: 48px;
+						text-align: center;
+						font-size: 48px;
+						opacity: 0;
+						cursor: pointer;
+					}
+					
+					.delete {
+						left: 144px;
+					}
+					
+					.up {
+						left: 192px;
+					}
+					
+					.down {
+						left: 240px;
+					}
+				}
+				
+				.thumby:hover {
+					background-color: rgba(0, 0, 0, 0.2);
+					
+					i {
+						opacity: 1;
+					}
+					
+					i:hover {
+						color: $sprint-color;
+					}
+					
+					.delete:hover {
+						color: #F44336;
+					}
+				}
+			
+				.upload {
+					position: relative;
+					width: 100%;
+					height: 96px;
+					cursor: pointer;
+					
+					div {
+						width: 100%;
+						height: 96px;
+						position: absolute;
+						top: 0;
+						left: 0;
+						right: 0;
+						bottom: 0;
+						
+						text-align: center;
+						line-height: 96px;
+						
+						i {
+							font-size: 48px;
+							color: white;
+							line-height: 96px;
+							transition: .25s;
+						}
+					}
+					
+					input {
+						cursor: pointer;
+						top: 0;
+						left: 0;
+						right: 0;
+						bottom: 0;
+						height: 100%;
+						width: 100%;
+						opacity: 0;
+						position: absolute;
+					}
+				}
+				
+				.upload:hover {
+					div i {
+						color: #27ae60;
+						font-size: 64px;
+					}
+				}
+			
+				.upload.draggy {
+					div i {
+						color: #3498db;
+						font-size: 72px;
+						transform: rotate(90deg);
+					}
+				}
+			}
+			
+			.toast {
+				@extend .blue-text;
+				@extend .z-depth-3;
+				i {
+					@extend .blue-text;
+				}
+				pointer-events: none;
+				height: 0;
+				width: 100%;
+				z-index: 999;
+				position: absolute;
+				top: 0;
+				border-radius: 0;
+				margin: 0;
+				transition: 200ms;
+				cursor: pointer;
+				background: white;
+				opacity: 0;
+				
+				i {
+					font-size: 48px;
+					line-height: 64px;
+					text-align: center;
+					width: 64px;
+					position: absolute;
+				}
+				
+				span {
+					display: inline-block;
+					height: calc(100% - 16px);
+					position: absolute;
+					left: 94px;
+					margin-top: 8px;
+					margin-bottom: 8px;
+					line-height: 24px;
+				}
+			}
+			
+			.toast.open {
+				height: 64px;
+				opacity: 1;
+				pointer-events: all;
+			}
+			
+			.toast.warn {
+				@extend .amber-text;
+				i {
+					@extend .amber-text;
+				}
+			}
+			
+			.toast.error {
+				@extend .red-text;
+				i {
+					@extend .red-text;
+				}
+			}
+			
+			.toast.single-line span {
+				line-height: 48px;
+			}
+		}
+		
+		.right-side {
+			// size of game is 800px x 600px
+			bottom: 0;
+			width: 400px;
+			flex-grow: 0;
+			flex-shrink: 1;
+			background: #1E282D;
+			display: flex;
+			flex-direction: column;
+			
+			.frame-wrapper {
+				position: relative;
+				width: 100%;
+				margin: auto;
+				max-width: 400px;
+				
+				iframe {
+					pointer-events: none;
+					position: absolute;
+					display: block;
+					width: 100%;
+					height: 100%;
+					border: 0;
+					background: rgba(0, 0, 0, 0.1);
+				}
+			}
+			.frame-wrapper:after {
+				content: '';
+				display: block;
+				margin-top: 75%;
+			}
+			
+			.things-pane {
+				flex-grow: 1;
+				display: flex;
+				flex-direction: row;
+				flex-wrap: wrap;
+				overflor: auto;
+				
+				.sprite {
+					flex-grow: 0;
+					width: 68px;
+					height: 68px;
+					margin: 16px;
+					border-radius: 8px;
+					flex-shrink: 0;
+					background: rgba(0, 0, 0, 0.1);
+					transition: 200ms;
+					color: white;
+					line-height: 68px;
+					cursor: pointer;
+					position: relative;
+					
+					.id {
+						position: absolute;
+						top: 8px;
+						left: 8px;
+						line-height: 12px;
+						font-size: 12px;
+					}
+					
+					.name {
+						display: block;
+						height: 100%;
+						width: 100%;
+						line-height: 68px;
+						text-align: center;
+						text-overflow: ellipsis;
+						overflow: hidden;
+					}
+				}
+				
+				i {
+					@extend .btn-floating;
+					@extend .hoverable;
+					width: 48px;
+					height: 48px;
+					margin: 26px;
+					text-align: center;
+					line-height: 48px;
+					display: block;
+					cursor: pointer;
+					flex-grow: 0;
+					font-size: 42px;
+					flex-shrink: 0;
+				}
+				
+				.sprite:hover {
+					background: rgba(0, 0, 0, 0.2);
+				}
+				
+				.sprite.active {
+					background: rgba(255, 255, 255, 0.1);
+				}
+				
+				.sprite:active {
+					background: rgba(255, 255, 255, 0.2);
+				}
+			}
+		}
+	
+		.right-side.fullscreen {
+			max-height: 100%;
+			position: relative;
+			
+			.things-pane {
+				display: none;
+			}
+			
+			.frame-wrapper {
+				width: 100%;
+				height: calc(100% - 64px);
+				margin: 0;
+				margin-top: 64px;
+				max-width: none;
+				position: absolute;
+				top: 0;
+				
+				iframe {
+					position: absolute;
+					top: 0; bottom: 0; left: 0; right: 0;
+				}
+			}
+			
+			.frame-wrapper:after {
+				margin-top: 0;
+				margin-left: 0;
+			}
+		}
+	}
+}
+
+.cm-variable-3 {
+	// "self", "function", etc
+	color: color('teal', 'lighten-1') !important;
+	font-style: normal;
+}
+
+.cm-operator {
+	// "->", "+", etc
+	color: color('teal', 'lighten-2') !important;
+	font-style: normal;
+}
+
+.cm-property {
+	color: color('teal', 'lighten-2') !important;
+	font-style: normal;
+}
+
+.CodeMirror-hints {
+	z-index: 999999;
+}
+
+.editor {
+	.menu {
+		position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 24px;
+    margin: 0;
+    display: flex;
+		
+		li {
+			padding-left: 15px;
+			padding-right: 15px;
+			
+			cursor: pointer;
+		}
+		
+		li:hover {
+			background: rgba(0, 0, 0, 0.1);
+		}
+	}
+}
+
+.right-side, #project {
+	.toolbar {
+		height: 64px;
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+	}
+	
+	.toolbar {
+		position: relative;
+		z-index: 900;
+		background: $sprint-color;
+
+		.go, .stop, .fullscreen, .swap, .edit {
+			@extend .btn-floating;
+			@extend .hoverable;
+			flex-grow: 0;
+			flex-shrink: 1;
+			text-align: center;
+			height: 48px;
+			width: 48px;
+			line-height: 48px;
+			margin-top: 8px;
+			margin-left: 8px;
+			margin-right: 8px;
+			background: white;
+			transition: 200ms;
+
+			i {
+				height: 48px;
+				width: 48px;
+				line-height: 48px;
+				font-size: 42px;
+				transition: 200ms;
+			}
+		}
+
+		.go.active, .stop.active, .fullscreen.active, .swap.active, .edit:hover {
+			i {
+				color: white !important;
+			}
+		}
+
+		.go {
+			i {
+				color: color('green', 'lighten-1');
+			}
+		}
+
+		.go.active {
+			background: color('green', 'lighten-1');
+		}
+
+		.stop {
+			i {
+				color: color('red', 'lighten-1');
+			}
+		}
+
+		.stop.active {
+			background: color('red', 'lighten-1');
+		}
+		
+		.edit {
+			i {
+				color: color('pink', 'lighten-1');
+			}
+		}
+
+		.edit:hover {
+			background: color('pink', 'lighten-1');
+		}
+
+		.swap {
+			position: absolute;
+			right: 64px;
+			transition: background-color 1200ms;
+
+			i {
+				transition: 1200ms;
+				color: color('purple', 'lighten-1');
+			}
+		}
+
+		.swap.active {
+			background: color('purple', 'lighten-1');
+		}
+
+		.fullscreen {
+			position: absolute;
+			right: 0;
+
+			i {
+				color: color('teal', 'lighten-1');
+			}
+		}
+
+		.fullscreen.active {
+			background: color('teal', 'lighten-1');
+		}
+	}
+}
+
+#project {
+	.toolbar {
+		background: transparent;
+		
+		.go, .stop, .fullscreen, .edit {
+			background: transparent;
+		}
+	}
+	
+	iframe {
+		pointer-events: none;
+		display: block;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		width: 100%;
+		height: 100%;
+		border: 0;
+		background: rgb(27, 36, 41);
+	}
+	
+	.frame {
+		width: 100%;
+		position: relative;
+		height: 100%;
+	}
+	
+	.frame:after {
+		content: '';
+		display: block;
+		padding-top: 75%;
+	}
+	
+	padding-bottom: 0.75rem;
+}
+
+#editor-loading {
+	z-index: 999;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	pointer-events: none;
+	margin-top: 100px;
+	
+	.progress {
+		@extend .blue.darken-1;
+		margin: 0;
+		border-radius: 0;
+		height: 10px;
+		
+		.determinate {
+			@extend .blue.darken-2;
+		}
+	}
+}
+
+.editor .left-side .toolbar {
+	display: flex;
+	position: relative;
+	flex-flow: row wrap;
+	
+	.costume {
+		cursor: pointer;
+		order: 1;
+		flex-grow: 0;
+		flex-shrink: 0;
+		width: 40px;
+		height: 40px;
+		margin-left: 8px;
+		text-align: center;
+		line-height: 40px;
+		margin-right: 8px;
+		transition: .25s;
+	}
+	
+	.costume:hover {
+		color: white;
+	}
+	
+	.name {
+		margin-left: 8px;
+		margin-right: 8px;
+		order: 2;
+		flex-grow: 1;
+		flex-shrink: 1;
+		height: 40px;
+		line-height: 40px;
+		color: white;
+		
+		input[type=text] {
+			height: calc(100% - 15px);
+			border-bottom: 1px solid white;
+		}
+		
+		input[type=text]:focus {
+     border-bottom: 1px solid white;
+     box-shadow: 0 1px 0 0 white;
+   }
+	}
+	
+	.tabz {
+		position: absolute;
+		bottom: 0;
+		height: 24px;
+		line-height: 24px;
+		display: flex;
+		left: 0;
+		right: 0;
+		width: 100%;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		@extend .z-depth-5;
+		
+		.script, .costumes, .sounds {
+			display: inline-block;
+			transition: 200ms;
+			box-shadow: inset 0 0 0 color('teal', 'darken-1');
+			flex-grow: 1;
+			flex-shrink: 1;
+			width: 100%;
+			text-align: center;
+			cursor: pointer;
+		}
+		
+		.script:hover, .costumes:hover, .sounds:hover {
+			box-shadow: inset 0 -3px 0 color('teal', 'darken-1');
+		}
+		
+		.active {
+			box-shadow: inset 0 -24px 0 color('teal', 'darken-1');
+		}
+		
+		.active:hover {
+			box-shadow: inset 0 -24px 0 color('teal', 'darken-1');
+		}
+	}
+}

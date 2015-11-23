@@ -1,7 +1,7 @@
 <?php
 
 if(isset($_GET['dev'])) {
-	// development mode- load angularjs version of editor
+	// development mode- load development version of editor
 	require 'dev.php';
 	die();
 }
