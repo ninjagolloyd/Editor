@@ -1,4 +1,6 @@
-@import '/scss/materializecss/materializecss';
+body {
+	background: red !important;
+}
 
 ::selection {
 	background: $sprint-color;
