@@ -12,12 +12,22 @@ try {
 }
 
 generateHead(array(
-	'title'							=> 'Sprint',
+	'title'							=> 'Learn Sprint',
 	'body_attr'					=> 'learn-page',
 	'navbar'						=> true
 ));
 
-echo $markdown;
+?>
+
+<div class="container">
+	<?php echo $markdown; ?>
+	
+	<br>
+	
+	<small><a href="https://github.com/Sprint-Team/Editor/edit/master/learn/<?php echo $_GET['doc']; ?>.md">Edit me on GitHub!</a></small>
+</div>
+
+<?php
 
 generateFeet(array(
 	'footer'						=> true

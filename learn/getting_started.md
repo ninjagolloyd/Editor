@@ -1,8 +1,2 @@
-# Getting Started
-TODO: Documentation
-
-```
-blah blah!
-```
-
-**yey**
+## Getting Started
+Hello there.
