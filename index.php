@@ -19,6 +19,8 @@ generateHead(array(
 
 <script>
 	var username = <?php echo json_encode(@$_SESSION['username']); ?>;  // null, if not logged in
+        if(username == "null"){
+                username = "not logged in"
 	
 	$(window).on('load', function() {
 		<?php if( isset( $_SESSION['username'] ) ) { ?>
